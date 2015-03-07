@@ -12,8 +12,9 @@
         $(window).resize(function (){
             if($(window).width() > 600 ){
                 $('#nav ul').removeAttr('style');
+
             }
-        })
+        });
 
         /*$(function(){
             $("#nav ul li").click(function(){

@@ -6,83 +6,54 @@ require('View/header.php');
 require('View/side_nav.php');
 
 ?>
-
-
-
-
 <div id="main">
 
     <!--    Some content (you can paste your include files here)-->
-    <article class="placeholder">
-        <h4>Content Test</h4>
-        <input type="submit" class="btn btn-default btn-sm" value="+ Add user"/>
-    </article>
+    <h1>Dashboard</h1>
 
-    <table class="table table-responsive">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Password</th>
-            <th>Roles</th>
-            <th>Actions</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Jervis</td>
-            <td>*****</td>
-            <td>Admin, Staff</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>George</td>
-            <td>*****</td>
-            <td>Admin, Staff</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Jasmin</td>
-            <td>*****</td>
-            <td>Doctor</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Ivan</td>
-            <td>*****</td>
-            <td>Nurse</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>Nick</td>
-            <td>*****</td>
-            <td>Staff</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>Pedro</td>
-            <td>*****</td>
-            <td>Staff</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>Mohammed</td>
-            <td>*****</td>
-            <td>Doctor</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>Harvy</td>
-            <td>*****</td>
-            <td>Physio</td>
-            <td></td>
-        </tr>
-    </table>
+    <section class="dashboard">
+     <div class="top1">
+         <h2>Manage</h2>
+         <ul class="list">
+         <?php
+         $menu = menu_db::get3MenuItems();
+         foreach ($menu as $item):
+         ?>
+             <li><a href="<?php echo $item->getPath(); ?>"> <?php echo $item->getTitle(); ?> </a></li>
+         <?php endforeach; ?>
+<!--             <li>Pages</li>-->
+<!--             <li>FAQ</li>-->
+         </ul>
+         <ul class="list">
+         <?php
+         $menu = menu_db::get3BottomMenuItems();
+         foreach ($menu as $item):
+         ?>
+         <li><a href="<?php echo $item->getPath(); ?>"> <?php echo $item->getTitle(); ?> </a></li>
+         <?php endforeach; ?>
+
+        <!--     <li>Subscriptions</li>
+             <li>Events</li>
+             <li>Users</li>-->
+         </ul>
+
+     </div>
+     <div class="top2">
+         <h2>Subscriptions</h2>
+     </div>
+    </section>
+
+    <section class="dashboard">
+     <div class="bottom">
+         <h2>Upcoming Events</h2>
+     </div>
+     <div class="bottom">
+         <h2>Posts</h2>
+     </div>
+     <div class="bottom">
+         <h2>Pages</h2>
+     </div>
+    </section>
 
     <!--    end content-->
 </div>
